@@ -15,3 +15,24 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
+
+  beszel-agent:
+    container_name: beszel-agent
+    image: henrygd/beszel-agent
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      PORT: 45876
+      KEY: '${BESZEL_KEY}'
+    restart: unless-stopped
+
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WATCHTOWER_CLEANUP: 'true'
+      WATCHTOWER_SCHEDULE: '0 0 4 * * *'
+    restart: unless-stopped
