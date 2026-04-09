@@ -27,6 +27,15 @@ services:
       KEY: '${BESZEL_KEY}'
     restart: unless-stopped
 
+  uptime-kuma:
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:latest
+    ports:
+      - "3001:3001"
+    volumes:
+      - './uptime-kuma/data:/app/data'
+    restart: unless-stopped
+
   watchtower:
     container_name: watchtower
     image: containrrr/watchtower
