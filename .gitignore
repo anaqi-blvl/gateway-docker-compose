@@ -1,0 +1,6 @@
+# Secrets
+.env
+
+# Pi-hole volume data
+**/etc-pihole/
+**/etc-dnsmasq.d/
