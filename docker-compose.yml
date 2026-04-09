@@ -44,4 +44,5 @@ services:
     environment:
       WATCHTOWER_CLEANUP: 'true'
       WATCHTOWER_SCHEDULE: '0 0 4 * * *'
+      DOCKER_API_VERSION: '1.45'
     restart: unless-stopped
