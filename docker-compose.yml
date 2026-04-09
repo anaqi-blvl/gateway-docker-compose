@@ -10,8 +10,8 @@ services:
       TZ: 'America/Chicago'
       PIHOLE_DNS_: '1.1.1.1;8.8.8.8'
     volumes:
-      - './etc-pihole:/etc/pihole'
-      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+      - './pihole/etc-pihole:/etc/pihole'
+      - './pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
